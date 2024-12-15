@@ -1,12 +1,17 @@
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button"; 
 
-export function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
-  const [query, setQuery] = useState('');
-
+export function SearchBar({
+  onSearch,
+  value,
+  onChange,
+}: {
+  onSearch: (query: string) => void;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}) {
   const handleSearch = () => {
-    onSearch(query);
+    onSearch(value); 
   };
 
   return (
@@ -14,8 +19,8 @@ export function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
       <Input
         type="text"
         placeholder="Search here..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={value}
+        onChange={onChange} 
         className="flex-1"
       />
       <Button onClick={handleSearch}>Search</Button>
