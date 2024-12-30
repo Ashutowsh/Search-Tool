@@ -1,11 +1,11 @@
 {
-  "id": "4a75e0b8-1efb-40f7-8e44-ed93d500459f",
+  "id": "066b1382-032d-41c1-ab08-c48944ee53e0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.users": {
-      "name": "users",
+    "public.articles": {
+      "name": "articles",
       "schema": "",
       "columns": {
         "id": {
@@ -32,8 +32,8 @@
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "users_title_unique": {
-          "name": "users_title_unique",
+        "articles_title_unique": {
+          "name": "articles_title_unique",
           "nullsNotDistinct": false,
           "columns": [
             "title"

@@ -1,9 +1,10 @@
 import 'dotenv/config';
 import { v4 as uuidv4 } from 'uuid';
-import { infoTable } from '@/db/schema';
+import { articlesTable } from '@/db/schema';
 import { db } from '@/db';
+import { articlesData } from '@/constants';
 
-export async function insertData(title: string, content: string) {
+async function insertData(title: string, content: string) {
   const id = uuidv4();
 
   const user = {
@@ -12,9 +13,17 @@ export async function insertData(title: string, content: string) {
     content: content,
   };
 
-  await db.insert(infoTable).values(user);
+  await db.insert(articlesTable).values(user);
   console.log(`Inserted article: ${title}`);
 }
 
-
-
+export const insertArticles = async () => {
+    await Promise.all(
+      articlesData.map(async (article) => {
+        await insertData(article.title, article.content);
+      })
+    );
+    console.log("All articles inserted!");
+  };
+  
+  insertArticles();

@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "drizzle:seed": "bun tsx ./src/helpers/addData.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
