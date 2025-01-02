@@ -1,5 +1,5 @@
 {
-  "id": "066b1382-032d-41c1-ab08-c48944ee53e0",
+  "id": "f6425f2b-42fb-41f6-8d0a-43a015e5bf72",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -26,6 +26,12 @@
           "type": "varchar(500)",
           "primaryKey": false,
           "notNull": true
+        },
+        "embedding": {
+          "name": "embedding",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
