@@ -1,17 +1,19 @@
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button"; 
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 export function SearchBar({
-  onSearch,
   value,
   onChange,
+  onSearch,
 }: {
-  onSearch: (query: string) => void;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSearch: (query: string) => void;
 }) {
-  const handleSearch = () => {
-    onSearch(value); 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onSearch(value);
+    }
   };
 
   return (
@@ -20,10 +22,11 @@ export function SearchBar({
         type="text"
         placeholder="Search here..."
         value={value}
-        onChange={onChange} 
+        onChange={onChange}
+        onKeyPress={handleKeyPress}
         className="flex-1"
       />
-      <Button onClick={handleSearch}>Search</Button>
+      <Button onClick={() => onSearch(value)}>Search</Button>
     </div>
   );
 }

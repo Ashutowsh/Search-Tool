@@ -1,6 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export function SearchResults({ results }: { results: Array<{ id: string; title: string; description: string }> }) {
+export function SearchResults({
+  results,
+}: {
+  results: Array<{ id: string; title: string; description: string }>;
+}) {
   return (
     <div className="grid gap-4">
       {results.map((result) => (
